@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalculateButton: View {
+struct ButtonCalculate: View {
     
     @Binding var firstNumber : String
     @Binding var nums : [String]
@@ -35,13 +35,13 @@ struct CalculateButton: View {
     }
 }
 
-struct CalculateButton_Previews: PreviewProvider {
+struct ButtonCalculate_Previews: PreviewProvider {
     @State static var nums : [String] = ["4", "+", "2"]
     static var previews: some View {
-        CalculateButtonTests(nums: self.$nums)
+        ButtonCalculateTests(nums: self.$nums)
     }
     
-    struct CalculateButtonTests : View {
+    struct ButtonCalculateTests : View {
         @State var firstNumber : String = "1"
         @Binding var nums : [String]
         
@@ -50,7 +50,7 @@ struct CalculateButton_Previews: PreviewProvider {
             VStack {
                 Spacer()
                 
-                CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
+                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
                 
                 Spacer()
                 

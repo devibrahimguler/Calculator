@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ElseButtons: View {
+struct ButtonElse: View {
     
     @State var action: () -> Void
     
@@ -29,19 +29,19 @@ struct ElseButtons: View {
     }
 }
 
-struct ElseButtons_Previews: PreviewProvider {
+struct ButtonElse_Previews: PreviewProvider {
     static var previews: some View {
-        ElseButtonsTests()
+        ButtonElseTests()
     }
     
-    struct ElseButtonsTests : View {
+    struct ButtonElseTests : View {
         @State var actionInt : Int = 0
         let elseText : String = "Clear"
         var body: some View {
             VStack {
                 Spacer()
                 
-                ElseButtons(action: {
+                ButtonElse(action: {
                     self.actionInt += 1
                 }, elseText: elseText)
                 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NumberButtons: View {
+struct ButtonNumbers: View {
     @Binding var strNumber : String
     let numberText: String
     
@@ -31,12 +31,12 @@ struct NumberButtons: View {
     }
 }
 
-struct NumberButtons_Previews: PreviewProvider {
+struct ButtonNumbers_Previews: PreviewProvider {
     static var previews: some View {
-        NumberButtonsTests()
+        ButtonNumbersTests()
     }
     
-    struct NumberButtonsTests : View {
+    struct ButtonNumbersTests : View {
         @State var numberText : String = "1"
         @State var strNumber : String = "1"
         let elseText : String = "Clear"
@@ -44,7 +44,7 @@ struct NumberButtons_Previews: PreviewProvider {
             VStack {
                 Spacer()
                 
-                NumberButtons(strNumber: self.$strNumber, numberText: self.numberText)
+                ButtonNumbers(strNumber: self.$strNumber, numberText: self.numberText)
                 
                 Spacer()
                 

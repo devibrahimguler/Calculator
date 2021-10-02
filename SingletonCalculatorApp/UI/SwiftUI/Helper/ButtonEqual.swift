@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EqualsButton: View {
+struct ButtonEqual: View {
     
     @Binding var firstNumber : String
     @Binding var nums : [String]
@@ -54,7 +54,7 @@ struct EqualsButton: View {
     }
 }
 
-struct EqualsButton_Previews: PreviewProvider {
+struct ButtonEqual_Previews: PreviewProvider {
     @State static var numsAdd : [String] = ["4", "+", "2"]
     @State static var numsSubtract : [String] = ["4", "-", "2"]
     @State static var numsMultiply : [String] = ["4", "x", "2"]
@@ -62,14 +62,14 @@ struct EqualsButton_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            EqualsButtonTests(nums: self.$numsAdd)
-            EqualsButtonTests(nums: self.$numsSubtract)
-            EqualsButtonTests(nums: self.$numsMultiply)
-            EqualsButtonTests(nums: self.$numsDivide)
+            ButtonEqualTests(nums: self.$numsAdd)
+            ButtonEqualTests(nums: self.$numsSubtract)
+            ButtonEqualTests(nums: self.$numsMultiply)
+            ButtonEqualTests(nums: self.$numsDivide)
         }
     }
     
-    struct EqualsButtonTests : View {
+    struct ButtonEqualTests : View {
         @State var firstNumber : String = "0"
         @Binding var nums : [String]
         
@@ -78,7 +78,7 @@ struct EqualsButton_Previews: PreviewProvider {
             VStack {
                 Spacer()
                 
-                EqualsButton(firstNumber: self.$firstNumber, nums: self.$nums)
+                ButtonEqual(firstNumber: self.$firstNumber, nums: self.$nums)
                 
                 Spacer()
                 

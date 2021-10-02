@@ -25,7 +25,7 @@ struct MainView: View {
                     .foregroundColor(.white)
             }
             
-            ButtonsNumberAndElse(firstNumber: self.$firstNumber)
+            ButtonNumbersAndElse(firstNumber: self.$firstNumber)
     
         }.background(Color.black)
             .preferredColorScheme(.dark)
