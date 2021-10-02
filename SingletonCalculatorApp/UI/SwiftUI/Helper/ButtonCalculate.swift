@@ -36,14 +36,13 @@ struct ButtonCalculate: View {
 }
 
 struct ButtonCalculate_Previews: PreviewProvider {
-    @State static var nums : [String] = ["4", "+", "2"]
     static var previews: some View {
-        ButtonCalculateTests(nums: self.$nums)
+        ButtonCalculateTests()
     }
-    
+    // We want to if clicked button, firstNumber is zero and nums append iconText.
     struct ButtonCalculateTests : View {
         @State var firstNumber : String = "1"
-        @Binding var nums : [String]
+        @State var nums : [String] = []
         
         let elseText : String = "Clear"
         var body: some View {
@@ -56,9 +55,8 @@ struct ButtonCalculate_Previews: PreviewProvider {
                 
                 Text("Result: \(self.firstNumber)")
                 
-                ForEach(nums, id: \.self) { num in
-                    Text("Nums: \(num)")
-                }
+                Text("Nums Count: \(self.$nums.count)")
+
             }
         }
     }

@@ -62,8 +62,26 @@ struct ButtonNumbersAndElse: View {
 }
 
 struct ButtonNumbersAndElse_Previews: PreviewProvider {
-    @State static var firstNumber : String = ""
     static var previews: some View {
-        ButtonNumbersAndElse(firstNumber: self.$firstNumber)
+        ButtonNumbersAndElseTests()
+    }
+    
+    // We want to working system so we tested system piece and we tested sytem.
+    struct ButtonNumbersAndElseTests : View {
+        @State var firstNumber : String = ""
+
+        var body: some View {
+            VStack {
+                
+                Text("Result: \(self.firstNumber)")
+                    .font(.largeTitle)
+                
+                Spacer()
+                
+                ButtonNumbersAndElse(firstNumber: self.$firstNumber)
+                
+             
+            }
+        }
     }
 }

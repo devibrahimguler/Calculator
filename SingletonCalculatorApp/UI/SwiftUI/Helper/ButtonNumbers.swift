@@ -36,10 +36,11 @@ struct ButtonNumbers_Previews: PreviewProvider {
         ButtonNumbersTests()
     }
     
+    // We want to add strNumber to the right like String. We dont want to add like Integer.
     struct ButtonNumbersTests : View {
         @State var numberText : String = "1"
         @State var strNumber : String = "1"
-        let elseText : String = "Clear"
+
         var body: some View {
             VStack {
                 Spacer()

@@ -34,6 +34,7 @@ struct ButtonElse_Previews: PreviewProvider {
         ButtonElseTests()
     }
     
+    // We want to if click button, actionInt adding 1.
     struct ButtonElseTests : View {
         @State var actionInt : Int = 0
         let elseText : String = "Clear"
