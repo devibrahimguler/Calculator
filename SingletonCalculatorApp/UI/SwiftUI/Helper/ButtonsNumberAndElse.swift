@@ -10,12 +10,11 @@ import SwiftUI
 struct ButtonsNumberAndElse: View {
     
     @Binding var firstNumber : String
-    
-    var calculater = Calculate()
+    @State var nums : [String] = []
     
     var body: some View {
         HStack(spacing: 0.0) {
-            var nums : [String] = []
+           
             HStack{
                 VStack{
                     
@@ -52,60 +51,11 @@ struct ButtonsNumberAndElse: View {
             }
             
             VStack {
-                CalculateButton(action: {
-                    nums.append(self.firstNumber)
-                    self.firstNumber = "0"
-                    nums.append("÷")
-                }, iconText: "÷")
-                
-                
-                CalculateButton(action: {
-                    nums.append(self.firstNumber)
-                    self.firstNumber = "0"
-                    nums.append("x")
-                }, iconText: "x")
-                
-                
-                CalculateButton(action: {
-                    nums.append(self.firstNumber)
-                    self.firstNumber = "0"
-                    nums.append("-")
-                }, iconText: "-")
-                
-                
-                CalculateButton(action: {
-                    nums.append(self.firstNumber)
-                    self.firstNumber = "0"
-                    nums.append("+")
-                }, iconText: "+")
-            
-                
-                CalculateButton(action: {
-                    if self.firstNumber != "" {
-                        nums.append(self.firstNumber)
-                        
-                        var value = Int(nums[0]) ?? 0
-                        var i = 0
-                        while i < nums.count {
-                            if nums[i] == "+"{
-                                value = calculater.toAdd(num1: value, num2: Int(nums[i+1]) ?? 0)
-                            } else if nums[i] == "-" {
-                                value = calculater.toSubtract(num1: value, num2: Int(nums[i+1]) ?? 0)
-                            } else if nums[i] == "x" {
-                                value = calculater.toMultiply(num1: value, num2: Int(nums[i+1]) ?? 0)
-                            } else if nums[i] == "÷" {
-                                value = calculater.toDivide(num1: value, num2: Int(nums[i+1]) ?? 0)
-                            }
-                            i += 1
-                        }
-                        
-                        nums.removeAll()
-                        
-                        self.firstNumber = String(value)
-                    }
-                    
-                }, iconText: "=")
-                
+                CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "÷")
+                CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "x")
+                CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "-")
+                CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
+                EqualsButton(firstNumber: self.$firstNumber, nums: self.$nums)   
             }
         }.padding(.all, 5)
     }

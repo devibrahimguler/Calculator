@@ -9,12 +9,17 @@ import SwiftUI
 
 struct CalculateButton: View {
     
-    @State var action: () -> Void
+    @Binding var firstNumber : String
+    @Binding var nums : [String]
     
     let iconText: String
     
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            nums.append(self.firstNumber)
+            self.firstNumber = "0"
+            nums.append(iconText)
+        }) {
             Circle()
                 .foregroundColor(Color.orange)
                 .overlay(
@@ -31,7 +36,9 @@ struct CalculateButton: View {
 }
 
 struct CalculateButton_Previews: PreviewProvider {
+    @State static var firstNumber : String = "0"
+    @State static var nums : [String] = ["1", "+", "2"]
     static var previews: some View {
-        CalculateButton(action: {}, iconText: "+")
+        CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2B49B02708653700949ACC /* EqualsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2B49AF2708653700949ACC /* EqualsButton.swift */; };
 		0F4BDCB8270668F200B43AB2 /* SingletonCalculatorAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BDCB7270668F200B43AB2 /* SingletonCalculatorAppApp.swift */; };
 		0F4BDCBA270668F200B43AB2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BDCB9270668F200B43AB2 /* MainView.swift */; };
 		0F4BDCBC270668F400B43AB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F4BDCBB270668F400B43AB2 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2B49AF2708653700949ACC /* EqualsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualsButton.swift; sourceTree = "<group>"; };
 		0F4BDCB4270668F200B43AB2 /* SingletonCalculatorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingletonCalculatorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F4BDCB7270668F200B43AB2 /* SingletonCalculatorAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonCalculatorAppApp.swift; sourceTree = "<group>"; };
 		0F4BDCB9270668F200B43AB2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				0F4BDCDA27070AD400B43AB2 /* ButtonsNumberAndElse.swift */,
 				0F4BDCDC27070B1C00B43AB2 /* NumberButtons.swift */,
 				0F4BDCDE27070D7E00B43AB2 /* ElseButtons.swift */,
+				0F2B49AF2708653700949ACC /* EqualsButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				0F4BDCCA270669F700B43AB2 /* Calculate.swift in Sources */,
 				0F4BDCBA270668F200B43AB2 /* MainView.swift in Sources */,
 				0F4BDCCC270674C500B43AB2 /* CalculateButton.swift in Sources */,
+				0F2B49B02708653700949ACC /* EqualsButton.swift in Sources */,
 				0F4BDCDF27070D7E00B43AB2 /* ElseButtons.swift in Sources */,
 				0F4BDCB8270668F200B43AB2 /* SingletonCalculatorAppApp.swift in Sources */,
 				0F4BDCDB27070AD400B43AB2 /* ButtonsNumberAndElse.swift in Sources */,
