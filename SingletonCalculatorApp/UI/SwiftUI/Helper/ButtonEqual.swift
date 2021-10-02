@@ -12,7 +12,7 @@ struct ButtonEqual: View {
     @Binding var firstNumber : String
     @Binding var nums : [String]
 
-    var calculater = Calculate()
+    static var calculater = Calculate()
     
     var body: some View {
         Button(action: {
@@ -23,13 +23,13 @@ struct ButtonEqual: View {
                 var i = 0
                 while i < nums.count {
                     if nums[i] == "+"{
-                        value = calculater.toAdd(num1: value, num2: Int(nums[i+1]) ?? 0)
+                        value = ButtonEqual.calculater.toAdd(num1: value, num2: Int(nums[i+1]) ?? 0)
                     } else if nums[i] == "-" {
-                        value = calculater.toSubtract(num1: value, num2: Int(nums[i+1]) ?? 0)
+                        value = ButtonEqual.calculater.toSubtract(num1: value, num2: Int(nums[i+1]) ?? 0)
                     } else if nums[i] == "x" {
-                        value = calculater.toMultiply(num1: value, num2: Int(nums[i+1]) ?? 0)
+                        value = ButtonEqual.calculater.toMultiply(num1: value, num2: Int(nums[i+1]) ?? 0)
                     } else if nums[i] == "÷" {
-                        value = calculater.toDivide(num1: value, num2: Int(nums[i+1]) ?? 0)
+                        value = ButtonEqual.calculater.toDivide(num1: value, num2: Int(nums[i+1]) ?? 0)
                     }
                     i += 1
                 }
