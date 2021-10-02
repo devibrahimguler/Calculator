@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var firstNumber : String = ""
+    @State var firstNumber : String = "0"
     
     var body: some View {
         VStack{
@@ -18,7 +18,7 @@ struct MainView: View {
             
             HStack{
                 
-                TextField("0", text: self.$firstNumber)
+                TextField("", text: self.$firstNumber)
                     .multilineTextAlignment(.trailing)
                     .font(.custom("Arial", fixedSize: 70))
                     .lineLimit(1)

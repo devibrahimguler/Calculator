@@ -14,59 +14,38 @@ struct ButtonsNumberAndElse: View {
     var calculater = Calculate()
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0.0) {
             var nums : [String] = []
             HStack{
                 VStack{
                     
                     ElseButtons(action: {
-                        self.firstNumber = ""
+                        self.firstNumber = "0"
                         nums.removeAll()
                     }, elseText: "Clear")
                     
                     HStack{
-                        NumberButtons(action: {
-                            self.firstNumber += "7"
-                        }, numberText: "7")
-                        
-                        NumberButtons(action: {
-                            self.firstNumber += "8"
-                        }, numberText: "8")
-                        
-                        NumberButtons(action: {
-                            self.firstNumber += "9"
-                        }, numberText: "9")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "7")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "8")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "9")
                     }
                     
                     HStack{
-                        NumberButtons(action: {
-                            self.firstNumber += "4"
-                        }, numberText: "4")
-                        
-                        NumberButtons(action: {
-                            self.firstNumber += "5"
-                        }, numberText: "5")
-                        
-                        NumberButtons(action: {
-                            self.firstNumber += "6"
-                        }, numberText: "6")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "4")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "5")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "6")
                     }
                     
                     HStack{
-                        NumberButtons(action: {
-                            self.firstNumber += "1"
-                        }, numberText: "1")
-                        
-                        NumberButtons(action: {
-                            self.firstNumber += "2"
-                        }, numberText: "2")
-                        
-                        NumberButtons(action: {
-                            self.firstNumber += "3"
-                        }, numberText: "3")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "1")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "2")
+                        NumberButtons(strNumber: self.$firstNumber, numberText: "3")
                     }
                     
                     ElseButtons(action: {
+                        if self.firstNumber.first == "0" {
+                            self.firstNumber.removeFirst()
+                        }
                         self.firstNumber += "0"
                     }, elseText: "0")
                 }
@@ -74,38 +53,30 @@ struct ButtonsNumberAndElse: View {
             
             VStack {
                 CalculateButton(action: {
-                    if self.firstNumber != "" {
-                        nums.append(self.firstNumber)
-                        self.firstNumber = ""
-                        nums.append("÷")
-                    }
+                    nums.append(self.firstNumber)
+                    self.firstNumber = "0"
+                    nums.append("÷")
                 }, iconText: "÷")
                 
                 
                 CalculateButton(action: {
-                    if self.firstNumber != "" {
-                        nums.append(self.firstNumber)
-                        self.firstNumber = ""
-                        nums.append("x")
-                    }
+                    nums.append(self.firstNumber)
+                    self.firstNumber = "0"
+                    nums.append("x")
                 }, iconText: "x")
                 
                 
                 CalculateButton(action: {
-                    if self.firstNumber != "" {
-                        nums.append(self.firstNumber)
-                        self.firstNumber = ""
-                        nums.append("-")
-                    }
+                    nums.append(self.firstNumber)
+                    self.firstNumber = "0"
+                    nums.append("-")
                 }, iconText: "-")
                 
                 
                 CalculateButton(action: {
-                    if self.firstNumber != "" {
-                        nums.append(self.firstNumber)
-                        self.firstNumber = ""
-                        nums.append("+")
-                    }
+                    nums.append(self.firstNumber)
+                    self.firstNumber = "0"
+                    nums.append("+")
                 }, iconText: "+")
             
                 
@@ -137,5 +108,12 @@ struct ButtonsNumberAndElse: View {
                 
             }
         }.padding(.all, 5)
+    }
+}
+
+struct ButtonsNumberAndElse_Previews: PreviewProvider {
+    @State static var firstNumber : String = ""
+    static var previews: some View {
+        ButtonsNumberAndElse(firstNumber: self.$firstNumber)
     }
 }

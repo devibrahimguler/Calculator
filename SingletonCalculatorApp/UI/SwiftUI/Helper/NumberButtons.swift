@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct NumberButtons: View {
-    
-    @State var action: () -> Void
-    
+    @Binding var strNumber : String
     let numberText: String
     
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            if self.strNumber.first == "0" {
+                self.strNumber.removeFirst()
+            }
+            self.strNumber += numberText
+        }) {
             Circle()
                 .foregroundColor(Color.gray)
                 .overlay(
@@ -29,7 +32,8 @@ struct NumberButtons: View {
 }
 
 struct NumberButtons_Previews: PreviewProvider {
+    @State static var strNumber : String = "1"
     static var previews: some View {
-        NumberButtons(action: {}, numberText: "1")
+        NumberButtons(strNumber: self.$strNumber, numberText: "1")
     }
 }
