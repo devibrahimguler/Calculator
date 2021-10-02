@@ -55,9 +55,39 @@ struct EqualsButton: View {
 }
 
 struct EqualsButton_Previews: PreviewProvider {
-    @State static var firstNumber : String = "0"
-    @State static var nums : [String] = ["1", "+", "2"]
+    @State static var numsAdd : [String] = ["4", "+", "2"]
+    @State static var numsSubtract : [String] = ["4", "-", "2"]
+    @State static var numsMultiply : [String] = ["4", "x", "2"]
+    @State static var numsDivide : [String] = ["4", "÷", "2"]
+    
     static var previews: some View {
-        EqualsButton(firstNumber: self.$firstNumber, nums: self.$nums)
+        Group {
+            EqualsButtonTests(nums: self.$numsAdd)
+            EqualsButtonTests(nums: self.$numsSubtract)
+            EqualsButtonTests(nums: self.$numsMultiply)
+            EqualsButtonTests(nums: self.$numsDivide)
+        }
+    }
+    
+    struct EqualsButtonTests : View {
+        @State var firstNumber : String = "0"
+        @Binding var nums : [String]
+        
+        let elseText : String = "Clear"
+        var body: some View {
+            VStack {
+                Spacer()
+                
+                EqualsButton(firstNumber: self.$firstNumber, nums: self.$nums)
+                
+                Spacer()
+                
+                Text("Result: \(self.firstNumber)")
+                
+                ForEach(nums, id: \.self) { num in
+                    Text("Nums: \(num)")
+                }
+            }
+        }
     }
 }

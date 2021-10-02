@@ -31,6 +31,24 @@ struct ElseButtons: View {
 
 struct ElseButtons_Previews: PreviewProvider {
     static var previews: some View {
-        ElseButtons(action: {}, elseText: "0")
+        ElseButtonsTests()
+    }
+    
+    struct ElseButtonsTests : View {
+        @State var actionInt : Int = 0
+        let elseText : String = "Clear"
+        var body: some View {
+            VStack {
+                Spacer()
+                
+                ElseButtons(action: {
+                    self.actionInt += 1
+                }, elseText: elseText)
+                
+                Spacer()
+                
+                Text("Result: \(self.actionInt)")
+            }
+        }
     }
 }

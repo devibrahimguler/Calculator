@@ -32,8 +32,24 @@ struct NumberButtons: View {
 }
 
 struct NumberButtons_Previews: PreviewProvider {
-    @State static var strNumber : String = "1"
     static var previews: some View {
-        NumberButtons(strNumber: self.$strNumber, numberText: "1")
+        NumberButtonsTests()
+    }
+    
+    struct NumberButtonsTests : View {
+        @State var numberText : String = "1"
+        @State var strNumber : String = "1"
+        let elseText : String = "Clear"
+        var body: some View {
+            VStack {
+                Spacer()
+                
+                NumberButtons(strNumber: self.$strNumber, numberText: self.numberText)
+                
+                Spacer()
+                
+                Text("Result: \(self.strNumber)")
+            }
+        }
     }
 }

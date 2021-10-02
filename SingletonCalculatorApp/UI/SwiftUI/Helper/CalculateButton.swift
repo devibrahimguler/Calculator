@@ -36,9 +36,30 @@ struct CalculateButton: View {
 }
 
 struct CalculateButton_Previews: PreviewProvider {
-    @State static var firstNumber : String = "0"
-    @State static var nums : [String] = ["1", "+", "2"]
+    @State static var nums : [String] = ["4", "+", "2"]
     static var previews: some View {
-        CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
+        CalculateButtonTests(nums: self.$nums)
+    }
+    
+    struct CalculateButtonTests : View {
+        @State var firstNumber : String = "1"
+        @Binding var nums : [String]
+        
+        let elseText : String = "Clear"
+        var body: some View {
+            VStack {
+                Spacer()
+                
+                CalculateButton(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
+                
+                Spacer()
+                
+                Text("Result: \(self.firstNumber)")
+                
+                ForEach(nums, id: \.self) { num in
+                    Text("Nums: \(num)")
+                }
+            }
+        }
     }
 }
