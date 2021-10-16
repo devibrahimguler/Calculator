@@ -6,6 +6,8 @@
 //
 internal struct Calculate {
     
+    static let calculate = Calculate()
+    
     internal func toAdd(num1 :Int = 0, num2 :Int = 0) -> Int {
         return num1 + num2
     }

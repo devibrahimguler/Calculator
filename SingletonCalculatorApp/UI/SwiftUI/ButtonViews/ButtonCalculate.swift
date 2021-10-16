@@ -11,26 +11,16 @@ struct ButtonCalculate: View {
     
     @Binding var firstNumber : String
     @Binding var nums : [String]
-    
+  
     let iconText: String
+    var color : Color
     
     var body: some View {
         Button(action: {
             nums.append(self.firstNumber)
-            self.firstNumber = "0"
             nums.append(iconText)
         }) {
-            Circle()
-                .foregroundColor(Color.orange)
-                .overlay(
-                    Text(iconText)
-                        .foregroundColor(.white)
-                        .bold()
-                        .font(.title)
-                        .padding(.bottom,3)
-                
-                ).frame(width: UIScreen.main.bounds.width * 0.20, height: 70, alignment: .center)
-                .padding(.horizontal,UIScreen.main.bounds.width * 0.01)
+            CircleView(iconText: self.iconText, iconColor: self.color, wdh: 0.20, hgt: 70)
         }
     }
 }
@@ -43,13 +33,14 @@ struct ButtonCalculate_Previews: PreviewProvider {
     struct ButtonCalculateTests : View {
         @State var firstNumber : String = "1"
         @State var nums : [String] = []
+        var color : Color = Color.orange
         
         let elseText : String = "Clear"
         var body: some View {
             VStack {
                 Spacer()
                 
-                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
+                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+", color: self.color)
                 
                 Spacer()
                 

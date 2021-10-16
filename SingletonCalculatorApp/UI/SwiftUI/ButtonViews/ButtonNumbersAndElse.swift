@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonNumbersAndElse: View {
     
     @Binding var firstNumber : String
-    @State var nums : [String] = []
+    @Binding var nums : [String]
     
     var body: some View {
         HStack(spacing: 0.0) {
@@ -23,24 +23,24 @@ struct ButtonNumbersAndElse: View {
                         nums.removeAll()
                     }, elseText: "Clear")
                     
-                    HStack{
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "7")
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "8")
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "9")
+                    HStack {
+                        ForEach(Range(7...9), id: \.self) { i in
+                            ButtonNumbers(strNumber: self.$firstNumber, nums: self.$nums, numberText: String(i))
+                        }
                     }
                     
-                    HStack{
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "4")
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "5")
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "6")
+                    HStack {
+                        ForEach(Range(4...6), id: \.self) { i in
+                            ButtonNumbers(strNumber: self.$firstNumber, nums: self.$nums, numberText: String(i))
+                        }
                     }
                     
-                    HStack{
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "1")
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "2")
-                        ButtonNumbers(strNumber: self.$firstNumber, numberText: "3")
+                    HStack {
+                        ForEach(Range(1...3), id: \.self) { i in
+                            ButtonNumbers(strNumber: self.$firstNumber, nums: self.$nums, numberText: String(i))
+                        }
                     }
-                    
+            
                     ButtonElse(action: {
                         if self.firstNumber.first == "0" {
                             self.firstNumber.removeFirst()
@@ -51,10 +51,10 @@ struct ButtonNumbersAndElse: View {
             }
             
             VStack {
-                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "÷")
-                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "x")
-                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "-")
-                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+")
+                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "÷", color: .orange)
+                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "x", color: .orange)
+                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "-", color: .orange)
+                ButtonCalculate(firstNumber: self.$firstNumber, nums: self.$nums, iconText: "+", color: .orange)
                 ButtonEqual(firstNumber: self.$firstNumber, nums: self.$nums)   
             }
         }.padding(.all, 5)
@@ -69,17 +69,23 @@ struct ButtonNumbersAndElse_Previews: PreviewProvider {
     // We want to working system so we tested system piece and we tested sytem.
     struct ButtonNumbersAndElseTests : View {
         @State var firstNumber : String = ""
+        @State var nums : [String] = []
 
         var body: some View {
             VStack {
                 
-                Text("Result: \(self.firstNumber)")
-                    .font(.largeTitle)
+                ButtonNumbersAndElse(firstNumber: self.$firstNumber, nums: self.$nums)
                 
                 Spacer()
                 
-                ButtonNumbersAndElse(firstNumber: self.$firstNumber)
+                HStack {
+                    Text("Result: \(self.firstNumber)")
+                        .font(.largeTitle)
+                    
+                    Spacer()
+                }.padding()
                 
+                Spacer()
              
             }
         }

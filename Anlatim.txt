@@ -1,0 +1,33 @@
+Singleton Design Pattern Ve Test Kullanımı
+
+Merhaba
+Bu yazımda çok detaya girmeden Singleton design patternden bahsedeceğim.
+Design pattern kullanmanın faydaları nelerdir ?
+
+Design patternde belirli 1 problem için belirli 1 çözüm vardır.
+Tasarımı iyileştirir.
+Takımın iletişimini artırır. Takımdaki herkesin aynı şeyi konuşup aynı şeyi anlamasını sağlar. Design patternin bir ismi vardır ve bir çözümü vardır, takım aynı dili konuşur.
+
+Singleton design pattern de  amaç bir class tan sadece bir tane instance yaratmaktır. Yani bir class tan daha önce yaratılmış bir instance varsa o instance kullanılır yeni instanceler üretilmez ve sistemde sürekli alan kaybedilmez. Sistem stabil çalışır.
+
+Şimdi sizlerle singleton design pattern kullanarak basit bir hesap makinası yapalım
+
+Öncelikle appmizi oluşturalım.
+
+Test bölümüne geçerek CalculateTest.swift adında bir swift dosyası ekleyelim. Sonra CalculateTest adında bir class oluşturalım.
+
+CalculateTest.swift dosyasına Calculate adında struct ekleyelim. Sonra içine bir tane static instance tanımlayalım.
+
+Toplama işlemi yapmak için bir fonksiyona ihtiyacımız var . Calculate struct ının içine toAdd adında bir toplama fonksiyonu yazalım. Aynı şekilde çıkarma, bölme, çarpma işlemleri içinde tekrarlayalım.
+
+Şimdi testleri yazma zamanı
+
+İlk olarak Test sınıfının içinde Calculator icin bir tane instance üretiyoruz.
+
+Toplama işlemi doğru çalışıyorumu görmek için basit bir eşitlik testi yazıyoruz. Sonraki testimizde ikinci sayı eğer girilmez ise nil dönmesi gerek. Biz bunu istemiyoruz bunun yerine 0 dönmesini bekliyoruz ve sonucun nil olmamasını bekliyoruz onun içinde eşitlik testi ve boş değil testi yapıyoruz. Aynı şekilde birinci sayı içinde tekrarlıyoruz.Bunları çıkarma, çarpma ve bölme içinde yapıyoruz.
+
+Tasarımını basit bir şekilde oluşturuyoruz.
+
+Şimdi calculater ın static instancesini oluşturuyoruz.
+
+Ve bu sayede az ve stabil bir masrafla hesap makinesini yapmış oluyoruz.

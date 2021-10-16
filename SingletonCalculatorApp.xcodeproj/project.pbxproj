@@ -18,6 +18,7 @@
 		0F4BDCDB27070AD400B43AB2 /* ButtonNumbersAndElse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BDCDA27070AD400B43AB2 /* ButtonNumbersAndElse.swift */; };
 		0F4BDCDD27070B1C00B43AB2 /* ButtonNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BDCDC27070B1C00B43AB2 /* ButtonNumbers.swift */; };
 		0F4BDCDF27070D7E00B43AB2 /* ButtonElse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BDCDE27070D7E00B43AB2 /* ButtonElse.swift */; };
+		0FA503542710F76100DDA57F /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA503532710F76100DDA57F /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0F4BDCDA27070AD400B43AB2 /* ButtonNumbersAndElse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNumbersAndElse.swift; sourceTree = "<group>"; };
 		0F4BDCDC27070B1C00B43AB2 /* ButtonNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNumbers.swift; sourceTree = "<group>"; };
 		0F4BDCDE27070D7E00B43AB2 /* ButtonElse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElse.swift; sourceTree = "<group>"; };
+		0FA503532710F76100DDA57F /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +69,7 @@
 		0F1EBDC627072FA000CA6462 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				0F4BDCCB270674C500B43AB2 /* ButtonCalculate.swift */,
-				0F4BDCDA27070AD400B43AB2 /* ButtonNumbersAndElse.swift */,
-				0F4BDCDC27070B1C00B43AB2 /* ButtonNumbers.swift */,
-				0F4BDCDE27070D7E00B43AB2 /* ButtonElse.swift */,
-				0F2B49AF2708653700949ACC /* ButtonEqual.swift */,
+				0FA503532710F76100DDA57F /* CircleView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -133,6 +131,7 @@
 		0F4BDCC72706699C00B43AB2 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				0FA503522710F72B00DDA57F /* ButtonViews */,
 				0F1EBDC627072FA000CA6462 /* Helper */,
 				0F4BDCB9270668F200B43AB2 /* MainView.swift */,
 			);
@@ -153,6 +152,18 @@
 				0F4BDCD32706F79D00B43AB2 /* CalculateTests.swift */,
 			);
 			path = SingletonCalculatorAppTests;
+			sourceTree = "<group>";
+		};
+		0FA503522710F72B00DDA57F /* ButtonViews */ = {
+			isa = PBXGroup;
+			children = (
+				0F4BDCCB270674C500B43AB2 /* ButtonCalculate.swift */,
+				0F4BDCDA27070AD400B43AB2 /* ButtonNumbersAndElse.swift */,
+				0F4BDCDC27070B1C00B43AB2 /* ButtonNumbers.swift */,
+				0F4BDCDE27070D7E00B43AB2 /* ButtonElse.swift */,
+				0F2B49AF2708653700949ACC /* ButtonEqual.swift */,
+			);
+			path = ButtonViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA503542710F76100DDA57F /* CircleView.swift in Sources */,
 				0F4BDCDD27070B1C00B43AB2 /* ButtonNumbers.swift in Sources */,
 				0F4BDCCA270669F700B43AB2 /* Calculate.swift in Sources */,
 				0F4BDCBA270668F200B43AB2 /* MainView.swift in Sources */,

@@ -34,22 +34,12 @@ struct ButtonEqual: View {
                     i += 1
                 }
                 
-                nums.removeAll()
+                self.nums.removeAll()
                 
                 self.firstNumber = String(value)
             }
         }) {
-            Circle()
-                .foregroundColor(Color.orange)
-                .overlay(
-                    Text("=")
-                        .foregroundColor(.white)
-                        .bold()
-                        .font(.title)
-                        .padding(.bottom,3)
-                
-                ).frame(width: UIScreen.main.bounds.width * 0.20, height: 70, alignment: .center)
-                .padding(.horizontal,UIScreen.main.bounds.width * 0.01)
+            CircleView(iconText: "=", iconColor: .orange, wdh: 0.20, hgt: 70)
         }
     }
 }

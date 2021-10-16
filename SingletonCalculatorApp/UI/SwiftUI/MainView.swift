@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @State var firstNumber : String = "0"
+    @State var nums : [String] = []
     
     var body: some View {
         VStack{
@@ -25,7 +26,7 @@ struct MainView: View {
                     .foregroundColor(.white)
             }
             
-            ButtonNumbersAndElse(firstNumber: self.$firstNumber)
+            ButtonNumbersAndElse(firstNumber: self.$firstNumber, nums: self.$nums)
     
         }.background(Color.black)
             .preferredColorScheme(.dark)
